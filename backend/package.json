@@ -1,0 +1,31 @@
+{
+  "name": "library-management-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "node --test src/tests/*.test.js",
+    "seed": "node scripts/seed.js",
+    "seed:admin": "node scripts/seedAdmin.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^11.3.0",
+    "mongoose": "^8.18.0",
+    "morgan": "^1.10.1",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^9.35.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}

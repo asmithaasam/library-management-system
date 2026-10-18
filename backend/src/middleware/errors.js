@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+export function notFound(req,_res,next){next(Object.assign(new Error(`Route not found: ${req.method} ${req.originalUrl}`),{status:404}));}
+export function errorHandler(err,_req,res,_next){if(err instanceof mongoose.Error.ValidationError)return res.status(400).json({success:false,message:'Validation failed',details:Object.values(err.errors).map(e=>e.message)});if(err.code===11000)return res.status(409).json({success:false,message:'A record with this unique value already exists'});const status=err.status||500;res.status(status).json({success:false,message:status>=500&&process.env.NODE_ENV==='production'?'Internal server error':err.message||'Request failed',...(err.details?{details:err.details}:{})});}
